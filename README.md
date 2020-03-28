@@ -71,7 +71,117 @@ git checkout: This command is used to create branches or switch between them.
               
 git amend:  It serves to modify the most recent confirmation.
             Example: git commit --amend 
+            
+            
+ 
+ INVESTIGATION UNIT 4          
 
-                
+Describe the different data analysis architectures: The data analysis architecture increases its complexity
+                                                    to the extent of the specific objective, generally it must be made up of                                                                 tandardized data models, conceptual models, physical models, metadata management,                                                       data classification, SQL (Structured Query Language) standardization and                                                                 management data quality. A good data architecture can reflect business behavior by                                                       offering consistent solutions to your most complex needs, guaranteeing consistency,                                                     integrity and accuracy.
+                                                    
 
-                  
+Identify the characteristics of a data center: There ara four characteristics that must be indentified, of which are:
+                                               Security: Data is the fundamental support of any business model in the modern
+                                               era, so guaranteeing the security of information is one of the main priorities of
+                                               companies.
+                                               
+                                               Refrigeration: Achieving an ideal temperature environment 
+                                               is also a very important point in order to obtain the best 
+                                               possible performance from the data center.
+                                               
+                                               Storage capacity: As larger amounts of data are being generated,
+                                               companies demand storage solutions with larger capacities.
+                                               
+                                               Data transfer:It is essential that the transfer of data 
+                                               (in reading or writing) occurs quickly, 
+                                               as this enhances accessibility to information. 
+                                               Likewise, it is essential that there is an optimal level 
+                                               of information transmission speed between the data center and 
+                                               the rest of the devices is optimal.
+ 
+ 
+ Idenfity the characteristics of Cloud and Fog data analysis: Characteristics of cloud: This type of effective use of Cloud systems 
+                                                              for Big Data allows companies to offer their services
+                                                              in the cloud in three modalities depending 
+                                                              on the needs of use: infrastructure (IaaS),
+                                                              pre-configured (PaaS) and software (SaaS).
+                                                              We can do the data processing and analysis in a transparent 
+                                                              way regarding infrastructure details.
+                                                              
+                                                              Characteristics of fog: Fog Computing thus refers 
+                                                                                      to the computing infrastructure close 
+                                                                                      to the data sources, in which many connections                                                                                           occur with low bandwidth and minimal data                                                                                               transmission. Fog Computing in contrast allows
+                                                                                      a single device, commonly called a gateway, 
+                                                                                      o process data that comes from multiple sources.
+                                                                                      
+                                                                                     
+ Understand the concept of data engineering: Data engineers require skills in a number of technical disciplines. 
+                                             These include scripting languages(like LINUX and Python), object-oriented programming                                                    skills (particularly Java and Scala), and of course SQL and how the syntax varies between                                                different applications. It also requires an understanding of distributed systems, data                                                  ingestion, and processing frameworks and storage engines.
+ 
+ 
+Define the concepts of data acquisition, managment, process and administration.
+
+Acquisition: The acquisition step includes everything that makes us recover the data, including the discovery, access, acquisition and                transfer of data. It includes identification and authenticated access to all related data and the transport of data from                sources to distributed file systems.
+
+Managment: Describes the collection, analysis, and use of vast amounts of digital information to improve operations. 
+           Broadly speaking, this area of data management specializes in the input, integrity, and storage 
+           of the onslaught of raw data that other management specializations use to improve operations and security, and inform                    business intelligence.
+              
+Process:  Data processing occurs when data is collected and translated into usable information. 
+          Data scientists are often involved, alone or in teams, and it is important that the processing 
+          is done correctly so as not to adversely affect the final product or the results obtained from the data.
+ 
+Data management: A data administrator does not develop information management policies, but rather deploys and executes them throughout                   the company. As the name suggests, a data manager oversees data collection and movement policies,
+                  ensuring that practices are implemented and rules are enforced.            
+              
+              
+ 
+Describe the Lambda and Kappa architectures: 
+
+Architecture Lambda: In a lambda architecture, the idea is to implement information systems that combine 
+                    the data processing modalities: batch and flow. This gives us the best of two worlds, as the batch mode gives us                         complete and reliable scope, while the mode gives us online data for instant decisions.     
+                    
+Architecture Kappa: It is a software architecture pattern. Instead of using a relational database like SQL or a key-value store like                         Cassandra, the canonical data store in a Kappa architecture system is an immutable, just append record. 
+                    From the registry, the data is transmitted through a computer system and entered into auxiliary warehouses to serve.                    
+                                               
+Describe the layers of each architecture :  
+
+Lambda layers: We have the service layer. The previous layer creates those views with the pre-computed data. But, we will always need a                layer that loads those views somewhere that then allows them to be queried. This is done at the service layer. 
+               It indexes the views created in the batch layer, updates them every time new versions of the batch layer arrive. 
+               Since it does not receive "random" data writes (which is usually the factor that really slows down a traditional                        Database), this layer is really robust, predictable, easy to configure and operate.
+               
+              Finally, the speed layer appears: The speed layer is similar to the batch layer in that it produces views from the data it                                                 receives. Now there are some key differences. The most important is that in order to                                                     achieve high speeds, this layer does not look at all the new data at once.
+
+Kappa layers: The batch layer stores the raw data when it arrives and computes the batch views for consumption.
+              Of course batch processes will take place at a certain interval and will be long-haul. The scope of the data can vary from               hours to years.
+              
+              The speed layer: Is used to compute views in real time to complement batch views.
+
+
+ Contrast the advantages and disadvantages of each big data architecture with respect to incremental architectures: 
+ 
+ Architecture Lambda: 
+
+Advantages:
+• Keep the input data unchanged.
+• This allows data to be reprocessed when it occurs criteria changes.
+
+Disadvantages:
+• Maintain different code to produce the same result
+  of two complex distributed systems (batch and speed) is expensive
+• Very different code for MapReduce and Storm / Apache Spark
+• In addition, it is not only about different code, but also about debugging and interaction with other products.
+• In the end it is a problem about programming paradigms
+  divergent and different.
+  
+  Architecture Kappa: 
+  
+Advantages:
+• It is only recomputed when there is a change in the code.
+• Only one code is kept.
+• You can dump kafka data to HDFS (disk), if there is memory limitations.
+  
+Disadvantages: 
+ • To use data sets that do not belong to the queries for which it has been
+ optimized the system, it is required to make a sequential access to the Log, which can
+ reduce performance.
