@@ -1,6 +1,12 @@
-#Codigo 
 https://www.kaggle.com/shreyatiwari/ml-linear-regression(Enlace del ejemplo)
 
+#Explicación 
+
+La regresión logística es uno de los algoritmos de aprendizaje supervisado más sencillos y más utilizados en Machine
+Learning para problemas de clasificación. Es un tipo de análisis de regresión que permite predecir
+el resultado de una variable categórica, (binaria o múltiple) en función de las variables independientes o predictoras.
+
+#Codigo 
 
 import pandas as pd
 import numpy as np
