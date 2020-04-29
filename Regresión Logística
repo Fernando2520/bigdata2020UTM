@@ -1,0 +1,93 @@
+#Codigo 
+https://www.kaggle.com/shreyatiwari/ml-linear-regression(Enlace del ejemplo)
+
+# This Python 3 environment comes with many helpful analytics libraries installed
+# It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
+# For example, here's several helpful packages to load in 
+
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from sklearn.model_selection import train_test_split
+import seaborn as sns
+import matplotlib.pyplot as plt
+# Input data files are available in the "../input/" directory.
+# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
+
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+
+# Any results you write to the current directory are saved as output.
+
+
+train = pd.read_csv("../input/competitive-data-science-predict-future-sales/sales_train.csv")
+
+train.head()
+
+train.isnull().sum()
+
+#scatter plot
+plt.scatter(train['shop_id'], train['item_cnt_day'], edgecolors='g')
+plt.xlabel('shop_id')
+plt.ylabel('item_cnt_day')
+plt.title('shop_id vs item_cnt_day')
+
+plt.scatter(train['item_id'], train['item_cnt_day'], edgecolors='r')
+plt.xlabel('item_id')
+plt.ylabel('item_cnt_day')
+plt.title('item_id vs item_cnt_day')
+
+#correlation
+train.corr()
+cor = train.iloc[:,0:3].corr()
+print(cor)
+
+train, test = train_test_split(train, test_size = 0.3)
+print(train.shape)
+print(test.shape)
+
+train_x = train.iloc[:,0:3]; train_y = train.iloc[:,3]
+test_x  = test.iloc[:,0:3];  test_y = test.iloc[:,3]
+print(train_x)
+print(test_x)
+
+train.dtypes
+print(train_x.shape)
+print(train_y.shape)
+print(test_x.shape)
+print(test_y.shape)
+
+train_x.head()
+train_y.head()
+
+train_x.tail()
+
+train_y.tail()
+
+train.head()
+
+lm1 = sm.OLS(train_y, train_x).fit()
+pdct1 = lm1.predict(test_x)
+print(pdct1)
+
+actual = list(test_y.head(50))
+type(actual)
+predicted = np.round(np.array(list(pdct1.head(50))),2)
+print(predicted)
+type(predicted)
+
+df_results = pd.DataFrame({'actual':actual, 'predicted':predicted})
+print(df_results)
+
+from sklearn import metrics  
+print('Mean Absolute Error:', metrics.mean_absolute_error(test_y, pdct1))  
+print('Mean Squared Error:', metrics.mean_squared_error(test_y, pdct1))  
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(test_y, pdct1))) 
+
+Mean Absolute Error: 0.548788992862524
+Mean Squared Error: 13.746630620179447
+Root Mean Squared Error: 3.7076448886293636
+
+
